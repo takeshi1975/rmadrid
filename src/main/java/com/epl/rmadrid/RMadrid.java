@@ -5,9 +5,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.namespace.QName;
+
 import org.apache.log4j.Logger;
 import org.rm.SWGesauroRM;
 import org.rm.SWGesauroRMSoap;
+import org.rm.SWGesauroRMSoap_SWGesauroRMSoap_Client;
 import org.rm.TCodigosBarras;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,6 +18,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class RMadrid {
 
+	private static final QName SERVICE_NAME = new QName("http://tempuri.org/", "SW_GesauroRM");
+	
 	@Value("${rmadrid.config.idEntidad}")
 	private long idEntidad;
 
@@ -38,12 +43,14 @@ public class RMadrid {
 	 * @return Objecto con el c�digo de barras en ArrayCodigos.
 	 */
 	public List<String> askSomeTickets(int qtyAd, int qtyNi) {
+		URL wsdlURL = SWGesauroRM.WSDL_LOCATION;
 		log.info("Se van a pedir tickets");
 		try {
 			URL url = new URL(remoteAddress);
 			log.info("Se va a conectar con el servidor externo");
-			SWGesauroRM swGesauroRM = new SWGesauroRM(url);
-			SWGesauroRMSoap service = swGesauroRM.getPort(SWGesauroRMSoap.class);
+			 SWGesauroRM ss = new SWGesauroRM(wsdlURL, SERVICE_NAME);
+		     SWGesauroRMSoap service = ss.getSWGesauroRMSoap();  
+			
 			log.info("Se ha conectado con el servidor externo");
 			TCodigosBarras codigosBarras = null;
 			List<String> tickets = new ArrayList<String>();
@@ -56,7 +63,7 @@ public class RMadrid {
 			if (codigosBarras.getArrayCodigos()!=null)
 				tickets.addAll(codigosBarras.getArrayCodigos().getString());
 			codigosBarras.getArrayCodigos().getString().clear(); // Limpiamos los codigos anteriores
-			if (qtyNi > 0) {
+			if (qtyNi > 0) {				
 				codigosBarras = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteNI, qtyNi);
 			}
 			if (codigosBarras.getArrayCodigos()!=null)

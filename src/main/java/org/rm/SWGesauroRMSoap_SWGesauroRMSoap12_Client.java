@@ -26,7 +26,9 @@ import javax.xml.ws.ResponseWrapper;
  */
 public final class SWGesauroRMSoap_SWGesauroRMSoap12_Client {
 
+
     private static final QName SERVICE_NAME = new QName("http://tempuri.org/", "SW_GesauroRM");
+
 
     private SWGesauroRMSoap_SWGesauroRMSoap12_Client() {
     }

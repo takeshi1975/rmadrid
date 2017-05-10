@@ -47,7 +47,7 @@ public class RMadrid {
 		try {			
 			log.info("Se va a conectar con el servidor externo");
 			 SWGesauroRM ss = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
-		     SWGesauroRMSoap service = ss.getSWGesauroRMSoap();  
+		     SWGesauroRMSoap service = ss.getSWGesauroRMSoap12();  
 			
 			log.info("Se ha conectado con el servidor externo");
 			TCodigosBarras codigosBarras = null;

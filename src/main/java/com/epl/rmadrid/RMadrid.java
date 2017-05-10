@@ -21,10 +21,10 @@ public class RMadrid {
 	@Value("${rmadrid.config.idConcepto}")
 	private long idConcepto;
 
-	@Value("${rmadrid.config.tipoCliente.NI}")
+	@Value("${rmadrid.config.tipoCliente.AD}")
 	private long tipoClienteAD;
 
-	@Value("${rmadrid.config.tipoCliente.AD}")
+	@Value("${rmadrid.config.tipoCliente.NI}")
 	private long tipoClienteNI;
 
 	@Value("${rmadrid.config.remoteAddress}")

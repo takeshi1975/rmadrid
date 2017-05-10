@@ -33,7 +33,7 @@ public class RMadrid {
 	private long tipoClienteNI;
 
 	@Value("${rmadrid.config.remoteAddress}")
-	private String remoteAddress;
+	private String wsdlURL;
 
 	private static final Logger log = Logger.getLogger(RMadrid.class);
 
@@ -42,13 +42,11 @@ public class RMadrid {
 	 * 
 	 * @return Objecto con el c�digo de barras en ArrayCodigos.
 	 */
-	public List<String> askSomeTickets(int qtyAd, int qtyNi) {
-		URL wsdlURL = SWGesauroRM.WSDL_LOCATION;
+	public List<String> askSomeTickets(int qtyAd, int qtyNi) {		
 		log.info("Se van a pedir tickets");
-		try {
-			URL url = new URL(remoteAddress);
+		try {			
 			log.info("Se va a conectar con el servidor externo");
-			 SWGesauroRM ss = new SWGesauroRM(wsdlURL, SERVICE_NAME);
+			 SWGesauroRM ss = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
 		     SWGesauroRMSoap service = ss.getSWGesauroRMSoap();  
 			
 			log.info("Se ha conectado con el servidor externo");
@@ -71,7 +69,7 @@ public class RMadrid {
 			log.info("Se han emitido "+tickets.size()+" tickets." );
 			return codigosBarras.getArrayCodigos().getString();
 		} catch (MalformedURLException malUrl) {
-			log.error("No se ha podido procesar la url" + remoteAddress, malUrl);
+			log.error("No se ha podido procesar la url" + wsdlURL, malUrl);
 		} catch (Exception ex) {
 			log.error("Error en el proceso", ex);
 		}

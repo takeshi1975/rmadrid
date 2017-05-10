@@ -33,11 +33,10 @@ public class RMadrid {
 	private static final Logger log = Logger.getLogger(RMadrid.class);
 
 	/**
-	 * Conexión al ws del real madrid para pedir los códigos de barras....
+	 * Conexiï¿½n al ws del real madrid para pedir los cï¿½digos de barras....
 	 * 
-	 * @return Objecto con el código de barras en ArrayCodigos.
+	 * @return Objecto con el cï¿½digo de barras en ArrayCodigos.
 	 */
-	@SuppressWarnings("restriction")
 	public List<String> askSomeTickets(int qtyAd, int qtyNi) {
 		log.info("Se van a pedir tickets");
 		try {
@@ -48,6 +47,9 @@ public class RMadrid {
 			log.info("Se ha conectado con el servidor externo");
 			TCodigosBarras codigosBarras = null;
 			List<String> tickets = new ArrayList<String>();
+			log.info("idEntidad: " +idEntidad);
+			log.info("idConcepto: "+idConcepto);
+			log.info("tipoClienteAD: "+tipoClienteAD);
 			if (qtyAd > 0) {
 				codigosBarras = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteAD, qtyAd);
 			}

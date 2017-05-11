@@ -47,11 +47,11 @@ public class RMadrid {
 	 * @return Objeto con el codigo de barras en ArrayCodigos.
 	 */
 	public List<String> askSomeTickets(int qtyAd, int qtyNi) {
-		log.info("Se van a pedir tickets");
+		log.info("Se van a pedir tickets "+wsdlURL);
 		try {
-			log.info("Se va a conectar con el servidor externo");
+			log.info("Se va a conectar con el servidor externo ");
 			ClientProxyFactoryBean factory = new JaxWsProxyFactoryBean();
-			factory.setServiceClass(SWGesauroRMSoap.class);
+			factory.setServiceClass(SWGesauroRMSoap.class);			
 			factory.setAddress(wsdlURL);
 			SWGesauroRMSoap serviceClient = (SWGesauroRMSoap) factory.create();
 			Client proxy = ClientProxy.getClient(serviceClient);

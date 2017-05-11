@@ -1,23 +1,23 @@
 package com.epl.rmadrid;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.xml.namespace.QName;
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.handler.MessageContext;
 
+import org.apache.cxf.endpoint.Client;
+import org.apache.cxf.frontend.ClientProxy;
+import org.apache.cxf.frontend.ClientProxyFactoryBean;
+import org.apache.cxf.headers.Header;
+import org.apache.cxf.jaxb.JAXBDataBinding;
+import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.log4j.Logger;
-import org.rm.SWGesauroRM;
-import org.rm.SWGesauroRMSoap;
-import org.rm.TCodigosBarras;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.tempuri.AuthHeader;
+import org.tempuri.SWGesauroRMSoap;
+import org.tempuri.TCodigosBarras;
 
 @Service
 public class RMadrid {
@@ -42,48 +42,30 @@ public class RMadrid {
 	private static final Logger log = Logger.getLogger(RMadrid.class);
 
 	/**
-	 * Conexi�n al ws del real madrid para pedir los c�digos de barras....
+	 * Conexion al ws del real madrid para pedir los c�digos de barras....
 	 * 
-	 * @return Objecto con el c�digo de barras en ArrayCodigos.
+	 * @return Objeto con el codigo de barras en ArrayCodigos.
 	 */
 	public List<String> askSomeTickets(int qtyAd, int qtyNi) {
 		log.info("Se van a pedir tickets");
 		try {
 			log.info("Se va a conectar con el servidor externo");
-			SWGesauroRM ss = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
-			SWGesauroRMSoap service = ss.getSWGesauroRMSoap();
-			// Configuración de usuario y password....
-			Map<String, Object> requestContext = ((BindingProvider) service).getRequestContext();
-			requestContext.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY,wsdlURL);
-			Map<String, List<String>> headers = new HashMap<String, List<String>>();
-			headers.put("Username", Collections.singletonList(""));
-			headers.put("Password", Collections.singletonList(""));
-			requestContext.put(MessageContext.HTTP_REQUEST_HEADERS, headers);
-
-			log.info("Se ha conectado con el servidor externo");
-			TCodigosBarras codigosBarras = null;
-			List<String> tickets = new ArrayList<String>();
-			log.info("idEntidad: " + idEntidad);
-			log.info("idConcepto: " + idConcepto);
-			log.info("tipoClienteAD: " + tipoClienteAD);
-			if (qtyAd > 0) {
-				codigosBarras = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteAD, qtyAd);
-			}
-			if (codigosBarras.getArrayCodigos() != null)
-				tickets.addAll(codigosBarras.getArrayCodigos().getString());
-			codigosBarras.getArrayCodigos().getString().clear(); // Limpiamos
-																	// los
-																	// codigos
-																	// anteriores
-			if (qtyNi > 0) {
-				codigosBarras = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteNI, qtyNi);
-			}
-			if (codigosBarras.getArrayCodigos() != null)
-				tickets.addAll(codigosBarras.getArrayCodigos().getString());
-			log.info("Se han emitido " + tickets.size() + " tickets.");
-			return codigosBarras.getArrayCodigos().getString();
-		} catch (MalformedURLException malUrl) {
-			log.error("No se ha podido procesar la url" + wsdlURL, malUrl);
+			ClientProxyFactoryBean factory = new JaxWsProxyFactoryBean();
+			factory.setServiceClass(SWGesauroRMSoap.class);
+			factory.setAddress(wsdlURL);
+			SWGesauroRMSoap serviceClient = (SWGesauroRMSoap) factory.create();
+			Client proxy = ClientProxy.getClient(serviceClient);
+			List<Header> headersList = new ArrayList<Header>();			
+			Header testSoapHeader1 = new Header(new QName("", "AuthHeader"), new AuthHeader("", ""),
+					new JAXBDataBinding(AuthHeader.class));
+			headersList.add(testSoapHeader1); // Añadimos el objeto AuthHeader a SoapEnvelop
+			proxy.getRequestContext().put(Header.HEADER_LIST, headersList);
+			TCodigosBarras codbars = serviceClient.rmEmisionCodigosBarras(this.idEntidad, this.idConcepto,
+					this.tipoClienteAD, qtyAd);
+			if (codbars!=null && codbars.getArrayCodigos()!=null)
+				for (String s:codbars.getArrayCodigos().getString())
+					log.info(s);
+			return codbars.getArrayCodigos().getString();
 		} catch (Exception ex) {
 			log.error("Error en el proceso", ex);
 		}

@@ -34,10 +34,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency> <!-- JPA -->
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
 
 		<dependency> <!-- Test -->
 			<groupId>org.springframework.boot</groupId>
@@ -45,25 +41,13 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency> <!-- Cache -->
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-cache</artifactId>
-		</dependency>
 
 		<dependency> <!-- Actuator -->
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-		<dependency> <!-- Hibernate -->
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-		</dependency>
 
-		<dependency> <!-- Base de datos de test -->
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-		</dependency>
 
 		<dependency> <!-- Log4j -->
 			<groupId>log4j</groupId>
@@ -83,39 +67,15 @@
 			<version>4.0</version>
 		</dependency>
 
-		<dependency> <!-- EH-Cache -->
-			<groupId>org.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-			<version>3.0.0</version>
-		</dependency>
 
-		<dependency> <!-- Cache JSR-107 -->
-			<groupId>javax.cache</groupId>
-			<artifactId>cache-api</artifactId>
-		</dependency>
 
 		<!-- dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> 
 			</dependency -->
 
-		<dependency>
-			<groupId>onebox-rest2-xml-client</groupId>
-			<artifactId>onebox-rest2-xml-client</artifactId>
-			<version>1.0</version>
-		</dependency>
 
 		<!-- DB Oracle -->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc7</artifactId>
-			<version>12.0.0</version>
-		</dependency>
 
 		<!--DB Postgres -->
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<version>42.0.0</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.thoughtworks.xstream</groupId>

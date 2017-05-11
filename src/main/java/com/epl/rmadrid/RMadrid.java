@@ -3,14 +3,18 @@ package com.epl.rmadrid;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.namespace.QName;
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.handler.MessageContext;
 
 import org.apache.log4j.Logger;
 import org.rm.SWGesauroRM;
 import org.rm.SWGesauroRMSoap;
-import org.rm.SWGesauroRMSoap_SWGesauroRMSoap_Client;
 import org.rm.TCodigosBarras;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -19,7 +23,7 @@ import org.springframework.stereotype.Service;
 public class RMadrid {
 
 	private static final QName SERVICE_NAME = new QName("http://tempuri.org/", "SW_GesauroRM");
-	
+
 	@Value("${rmadrid.config.idEntidad}")
 	private long idEntidad;
 
@@ -42,31 +46,41 @@ public class RMadrid {
 	 * 
 	 * @return Objecto con el c�digo de barras en ArrayCodigos.
 	 */
-	public List<String> askSomeTickets(int qtyAd, int qtyNi) {		
+	public List<String> askSomeTickets(int qtyAd, int qtyNi) {
 		log.info("Se van a pedir tickets");
-		try {			
+		try {
 			log.info("Se va a conectar con el servidor externo");
-			 SWGesauroRM ss = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
-		     SWGesauroRMSoap service = ss.getSWGesauroRMSoap12();  
-			
+			SWGesauroRM ss = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
+			SWGesauroRMSoap service = ss.getSWGesauroRMSoap();
+			// Configuración de usuario y password....
+			Map<String, Object> requestContext = ((BindingProvider) service).getRequestContext();
+			requestContext.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY,wsdlURL);
+			Map<String, List<String>> headers = new HashMap<String, List<String>>();
+			headers.put("Username", Collections.singletonList(""));
+			headers.put("Password", Collections.singletonList(""));
+			requestContext.put(MessageContext.HTTP_REQUEST_HEADERS, headers);
+
 			log.info("Se ha conectado con el servidor externo");
 			TCodigosBarras codigosBarras = null;
 			List<String> tickets = new ArrayList<String>();
-			log.info("idEntidad: " +idEntidad);
-			log.info("idConcepto: "+idConcepto);
-			log.info("tipoClienteAD: "+tipoClienteAD);
+			log.info("idEntidad: " + idEntidad);
+			log.info("idConcepto: " + idConcepto);
+			log.info("tipoClienteAD: " + tipoClienteAD);
 			if (qtyAd > 0) {
 				codigosBarras = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteAD, qtyAd);
 			}
-			if (codigosBarras.getArrayCodigos()!=null)
+			if (codigosBarras.getArrayCodigos() != null)
 				tickets.addAll(codigosBarras.getArrayCodigos().getString());
-			codigosBarras.getArrayCodigos().getString().clear(); // Limpiamos los codigos anteriores
-			if (qtyNi > 0) {				
+			codigosBarras.getArrayCodigos().getString().clear(); // Limpiamos
+																	// los
+																	// codigos
+																	// anteriores
+			if (qtyNi > 0) {
 				codigosBarras = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteNI, qtyNi);
 			}
-			if (codigosBarras.getArrayCodigos()!=null)
+			if (codigosBarras.getArrayCodigos() != null)
 				tickets.addAll(codigosBarras.getArrayCodigos().getString());
-			log.info("Se han emitido "+tickets.size()+" tickets." );
+			log.info("Se han emitido " + tickets.size() + " tickets.");
 			return codigosBarras.getArrayCodigos().getString();
 		} catch (MalformedURLException malUrl) {
 			log.error("No se ha podido procesar la url" + wsdlURL, malUrl);

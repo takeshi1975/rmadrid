@@ -3,6 +3,7 @@ package org.tempuri;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
@@ -38,10 +39,13 @@ import javax.xml.bind.annotation.XmlType;
 })
 @XmlRootElement(name = "RMEmisionCodigosBarras")
 public class RMEmisionCodigosBarras {
-
+	@XmlElement(name = "idEntidad", namespace="")
     protected long idEntidad;
+	@XmlElement(name = "idConcepto", namespace="")
     protected long idConcepto;
+	@XmlElement(name = "idTipoCliente", namespace="")
     protected long idTipoCliente;
+	@XmlElement(name = "cantidad", namespace="")
     protected int cantidad;
 
     /**

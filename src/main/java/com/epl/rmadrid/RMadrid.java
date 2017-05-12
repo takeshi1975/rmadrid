@@ -60,7 +60,7 @@ public class RMadrid {
 			SWGesauroRMSoap serviceClient = (SWGesauroRMSoap) factory.create();
 			Client proxy = ClientProxy.getClient(serviceClient);
 			List<Header> headersList = new ArrayList<Header>();			
-			Header testSoapHeader1 = new Header(new QName("", "AuthHeader"), new AuthHeader("", ""),
+			Header testSoapHeader1 = new Header(new QName("", "AuthHeader"), new AuthHeader(" ", " "),
 					new JAXBDataBinding(AuthHeader.class));
 			headersList.add(testSoapHeader1); // Añadimos el objeto AuthHeader a SoapEnvelop
 			proxy.getRequestContext().put(Header.HEADER_LIST, headersList);

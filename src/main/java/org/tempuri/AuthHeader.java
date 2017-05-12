@@ -39,9 +39,9 @@ import javax.xml.namespace.QName;
 })
 public class AuthHeader {
 
-    @XmlElement(name = "User")
+    @XmlElement(name = "User", namespace="")
     protected String user;
-    @XmlElement(name = "Password")
+    @XmlElement(name = "Password", namespace="")
     protected String password;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();

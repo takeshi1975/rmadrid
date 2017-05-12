@@ -1,6 +1,5 @@
 package com.epl.rmadrid;
 
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +9,8 @@ import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.frontend.ClientProxy;
 import org.apache.cxf.frontend.ClientProxyFactoryBean;
 import org.apache.cxf.headers.Header;
+import org.apache.cxf.interceptor.LoggingInInterceptor;
+import org.apache.cxf.interceptor.LoggingOutInterceptor;
 import org.apache.cxf.jaxb.JAXBDataBinding;
 import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.log4j.Logger;
@@ -52,7 +53,10 @@ public class RMadrid {
 			log.info("Se va a conectar con el servidor externo ");
 			ClientProxyFactoryBean factory = new JaxWsProxyFactoryBean();
 			factory.setServiceClass(SWGesauroRMSoap.class);			
-			factory.setAddress(wsdlURL);
+			factory.setAddress(wsdlURL); // Fijamos los interceptores...
+			factory.getInInterceptors().add(new LoggingInInterceptor());
+			factory.getOutInterceptors().add(new LoggingOutInterceptor());
+			
 			SWGesauroRMSoap serviceClient = (SWGesauroRMSoap) factory.create();
 			Client proxy = ClientProxy.getClient(serviceClient);
 			List<Header> headersList = new ArrayList<Header>();			

@@ -72,13 +72,13 @@ public interface SWGesauroRMSoap {
     @ResponseWrapper(localName = "RMEmisionCodigosBarrasResponse", targetNamespace = "http://tempuri.org/", className = "org.tempuri.RMEmisionCodigosBarrasResponse")
     @WebResult(name = "RMEmisionCodigosBarrasResult", targetNamespace = "http://tempuri.org/")
     public org.tempuri.TCodigosBarras rmEmisionCodigosBarras(
-        @WebParam(name = "idEntidad", targetNamespace = "http://tempuri.org/")
+        @WebParam(name = "idEntidad", targetNamespace = "")
         long idEntidad,
-        @WebParam(name = "idConcepto", targetNamespace = "http://tempuri.org/")
+        @WebParam(name = "idConcepto", targetNamespace = "")
         long idConcepto,
-        @WebParam(name = "idTipoCliente", targetNamespace = "http://tempuri.org/")
+        @WebParam(name = "idTipoCliente", targetNamespace = "")
         long idTipoCliente,
-        @WebParam(name = "cantidad", targetNamespace = "http://tempuri.org/")
+        @WebParam(name = "cantidad", targetNamespace = "")
         int cantidad
     );
 

@@ -1,5 +1,5 @@
 
-package org.tempuri;
+package org.rm;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +12,9 @@ import javax.xml.namespace.QName;
 
 
 /**
- * <p>Java class for AuthHeader complex type.
+ * <p>Clase Java para AuthHeader complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="AuthHeader">
@@ -39,24 +39,20 @@ import javax.xml.namespace.QName;
 })
 public class AuthHeader {
 
-    @XmlElement(name = "User", namespace="")
+    @XmlElement(name = "User")
     protected String user;
-    @XmlElement(name = "Password", namespace="")
+    @XmlElement(name = "Password")
     protected String password;
     @XmlAnyAttribute
     private Map<QName, String> otherAttributes = new HashMap<QName, String>();
 
-    public AuthHeader(){
-    	
-    }
-    
-    public AuthHeader(String user, String password){
-    	this.user = user;
-    	this.password = password;
-    }
+    public AuthHeader() {
+    	user = "";
+    	password = "";
+	}
     
     /**
-     * Gets the value of the user property.
+     * Obtiene el valor de la propiedad user.
      * 
      * @return
      *     possible object is
@@ -68,7 +64,7 @@ public class AuthHeader {
     }
 
     /**
-     * Sets the value of the user property.
+     * Define el valor de la propiedad user.
      * 
      * @param value
      *     allowed object is
@@ -80,7 +76,7 @@ public class AuthHeader {
     }
 
     /**
-     * Gets the value of the password property.
+     * Obtiene el valor de la propiedad password.
      * 
      * @return
      *     possible object is
@@ -92,7 +88,7 @@ public class AuthHeader {
     }
 
     /**
-     * Sets the value of the password property.
+     * Define el valor de la propiedad password.
      * 
      * @param value
      *     allowed object is

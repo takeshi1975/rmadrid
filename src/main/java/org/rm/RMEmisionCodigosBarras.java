@@ -1,17 +1,16 @@
 
-package org.tempuri;
+package org.rm;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Clase Java para anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType>
@@ -39,17 +38,14 @@ import javax.xml.bind.annotation.XmlType;
 })
 @XmlRootElement(name = "RMEmisionCodigosBarras")
 public class RMEmisionCodigosBarras {
-	@XmlElement(name = "idEntidad", namespace="")
+
     protected long idEntidad;
-	@XmlElement(name = "idConcepto", namespace="")
     protected long idConcepto;
-	@XmlElement(name = "idTipoCliente", namespace="")
     protected long idTipoCliente;
-	@XmlElement(name = "cantidad", namespace="")
     protected int cantidad;
 
     /**
-     * Gets the value of the idEntidad property.
+     * Obtiene el valor de la propiedad idEntidad.
      * 
      */
     public long getIdEntidad() {
@@ -57,7 +53,7 @@ public class RMEmisionCodigosBarras {
     }
 
     /**
-     * Sets the value of the idEntidad property.
+     * Define el valor de la propiedad idEntidad.
      * 
      */
     public void setIdEntidad(long value) {
@@ -65,7 +61,7 @@ public class RMEmisionCodigosBarras {
     }
 
     /**
-     * Gets the value of the idConcepto property.
+     * Obtiene el valor de la propiedad idConcepto.
      * 
      */
     public long getIdConcepto() {
@@ -73,7 +69,7 @@ public class RMEmisionCodigosBarras {
     }
 
     /**
-     * Sets the value of the idConcepto property.
+     * Define el valor de la propiedad idConcepto.
      * 
      */
     public void setIdConcepto(long value) {
@@ -81,7 +77,7 @@ public class RMEmisionCodigosBarras {
     }
 
     /**
-     * Gets the value of the idTipoCliente property.
+     * Obtiene el valor de la propiedad idTipoCliente.
      * 
      */
     public long getIdTipoCliente() {
@@ -89,7 +85,7 @@ public class RMEmisionCodigosBarras {
     }
 
     /**
-     * Sets the value of the idTipoCliente property.
+     * Define el valor de la propiedad idTipoCliente.
      * 
      */
     public void setIdTipoCliente(long value) {
@@ -97,7 +93,7 @@ public class RMEmisionCodigosBarras {
     }
 
     /**
-     * Gets the value of the cantidad property.
+     * Obtiene el valor de la propiedad cantidad.
      * 
      */
     public int getCantidad() {
@@ -105,7 +101,7 @@ public class RMEmisionCodigosBarras {
     }
 
     /**
-     * Sets the value of the cantidad property.
+     * Define el valor de la propiedad cantidad.
      * 
      */
     public void setCantidad(int value) {

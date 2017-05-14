@@ -1,5 +1,5 @@
 
-package org.tempuri;
+package org.rm;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Clase Java para anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType>
@@ -38,7 +38,7 @@ public class RMReemisionCodigosBarrasResponse {
     protected TCodigosBarras rmReemisionCodigosBarrasResult;
 
     /**
-     * Gets the value of the rmReemisionCodigosBarrasResult property.
+     * Obtiene el valor de la propiedad rmReemisionCodigosBarrasResult.
      * 
      * @return
      *     possible object is
@@ -50,7 +50,7 @@ public class RMReemisionCodigosBarrasResponse {
     }
 
     /**
-     * Sets the value of the rmReemisionCodigosBarrasResult property.
+     * Define el valor de la propiedad rmReemisionCodigosBarrasResult.
      * 
      * @param value
      *     allowed object is

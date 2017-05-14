@@ -1,5 +1,5 @@
 
-package org.tempuri;
+package org.rm;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Clase Java para anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType>
@@ -32,14 +32,14 @@ import javax.xml.bind.annotation.XmlType;
     "idEntidad",
     "idEntrada"
 })
-@XmlRootElement(name = "RMCancelacionEntrada")
-public class RMCancelacionEntrada {
+@XmlRootElement(name = "RMActivarEntrada")
+public class RMActivarEntrada {
 
     protected long idEntidad;
     protected long idEntrada;
 
     /**
-     * Gets the value of the idEntidad property.
+     * Obtiene el valor de la propiedad idEntidad.
      * 
      */
     public long getIdEntidad() {
@@ -47,7 +47,7 @@ public class RMCancelacionEntrada {
     }
 
     /**
-     * Sets the value of the idEntidad property.
+     * Define el valor de la propiedad idEntidad.
      * 
      */
     public void setIdEntidad(long value) {
@@ -55,7 +55,7 @@ public class RMCancelacionEntrada {
     }
 
     /**
-     * Gets the value of the idEntrada property.
+     * Obtiene el valor de la propiedad idEntrada.
      * 
      */
     public long getIdEntrada() {
@@ -63,7 +63,7 @@ public class RMCancelacionEntrada {
     }
 
     /**
-     * Sets the value of the idEntrada property.
+     * Define el valor de la propiedad idEntrada.
      * 
      */
     public void setIdEntrada(long value) {

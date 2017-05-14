@@ -1,5 +1,5 @@
 
-package org.tempuri;
+package org.rm;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for anonymous complex type.
+ * <p>Clase Java para anonymous complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType>
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idEntidad" type="{http://www.w3.org/2001/XMLSchema}long"/>
- *         &lt;element name="idEntrada" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="numOperacion" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,16 +30,16 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "idEntidad",
-    "idEntrada"
+    "numOperacion"
 })
-@XmlRootElement(name = "RMDesactivarEntrada")
-public class RMDesactivarEntrada {
+@XmlRootElement(name = "RMReemisionCodigosBarras")
+public class RMReemisionCodigosBarras {
 
     protected long idEntidad;
-    protected long idEntrada;
+    protected long numOperacion;
 
     /**
-     * Gets the value of the idEntidad property.
+     * Obtiene el valor de la propiedad idEntidad.
      * 
      */
     public long getIdEntidad() {
@@ -47,7 +47,7 @@ public class RMDesactivarEntrada {
     }
 
     /**
-     * Sets the value of the idEntidad property.
+     * Define el valor de la propiedad idEntidad.
      * 
      */
     public void setIdEntidad(long value) {
@@ -55,19 +55,19 @@ public class RMDesactivarEntrada {
     }
 
     /**
-     * Gets the value of the idEntrada property.
+     * Obtiene el valor de la propiedad numOperacion.
      * 
      */
-    public long getIdEntrada() {
-        return idEntrada;
+    public long getNumOperacion() {
+        return numOperacion;
     }
 
     /**
-     * Sets the value of the idEntrada property.
+     * Define el valor de la propiedad numOperacion.
      * 
      */
-    public void setIdEntrada(long value) {
-        this.idEntrada = value;
+    public void setNumOperacion(long value) {
+        this.numOperacion = value;
     }
 
 }

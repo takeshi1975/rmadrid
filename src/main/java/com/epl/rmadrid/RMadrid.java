@@ -1,24 +1,18 @@
 package com.epl.rmadrid;
 
-import java.util.ArrayList;
+import java.net.URL;
 import java.util.List;
 
 import javax.xml.namespace.QName;
 
-import org.apache.cxf.endpoint.Client;
-import org.apache.cxf.frontend.ClientProxy;
-import org.apache.cxf.frontend.ClientProxyFactoryBean;
-import org.apache.cxf.headers.Header;
-import org.apache.cxf.interceptor.LoggingInInterceptor;
-import org.apache.cxf.interceptor.LoggingOutInterceptor;
-import org.apache.cxf.jaxb.JAXBDataBinding;
-import org.apache.cxf.jaxws.JaxWsProxyFactoryBean;
 import org.apache.log4j.Logger;
+import org.rm.AuthHeader;
+import org.rm.SWGesauroRM;
+import org.rm.SWGesauroRMSoap;
+import org.rm.TCodigosBarras;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.tempuri.AuthHeader;
-import org.tempuri.SWGesauroRMSoap;
-import org.tempuri.TCodigosBarras;
+
 
 @Service
 public class RMadrid {
@@ -48,6 +42,7 @@ public class RMadrid {
 	 * @return Objeto con el codigo de barras en ArrayCodigos.
 	 */
 	public List<String> askSomeTickets(int qtyAd, int qtyNi) {
+		/*
 		log.info("Se van a pedir tickets "+wsdlURL);
 		try {
 			log.info("Se va a conectar con el servidor externo ");
@@ -74,6 +69,20 @@ public class RMadrid {
 			log.error("Error en el proceso", ex);
 		}
 		return null;
+		*/
+		try{
+			SWGesauroRM swgesaurorm = new SWGesauroRM(new URL(wsdlURL));
+			SWGesauroRMSoap service = swgesaurorm.getPort(SWGesauroRMSoap.class);
+			TCodigosBarras codbars = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteAD, 2, new AuthHeader());
+			if (codbars!=null && codbars.getArrayCodigos()!=null){
+				for (String s:codbars.getArrayCodigos().getString())
+					log.info(s);
+			}
+			return codbars.getArrayCodigos().getString();
+		}catch(Exception ex){
+			log.error("Error en el proceso", ex);
+			return null;
+		}		
 	}
 
 }

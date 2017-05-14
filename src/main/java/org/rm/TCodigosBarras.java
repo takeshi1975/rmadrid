@@ -1,5 +1,5 @@
 
-package org.tempuri;
+package org.rm;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for TCodigosBarras complex type.
+ * <p>Clase Java para TCodigosBarras complex type.
  * 
- * <p>The following schema fragment specifies the expected content contained within this class.
+ * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
  * &lt;complexType name="TCodigosBarras">
@@ -50,7 +50,7 @@ public class TCodigosBarras {
     protected ArrayOfString arrayEntradas;
 
     /**
-     * Gets the value of the numOperacion property.
+     * Obtiene el valor de la propiedad numOperacion.
      * 
      */
     public long getNumOperacion() {
@@ -58,7 +58,7 @@ public class TCodigosBarras {
     }
 
     /**
-     * Sets the value of the numOperacion property.
+     * Define el valor de la propiedad numOperacion.
      * 
      */
     public void setNumOperacion(long value) {
@@ -66,7 +66,7 @@ public class TCodigosBarras {
     }
 
     /**
-     * Gets the value of the cantidad property.
+     * Obtiene el valor de la propiedad cantidad.
      * 
      */
     public long getCantidad() {
@@ -74,7 +74,7 @@ public class TCodigosBarras {
     }
 
     /**
-     * Sets the value of the cantidad property.
+     * Define el valor de la propiedad cantidad.
      * 
      */
     public void setCantidad(long value) {
@@ -82,7 +82,7 @@ public class TCodigosBarras {
     }
 
     /**
-     * Gets the value of the arrayImagenes property.
+     * Obtiene el valor de la propiedad arrayImagenes.
      * 
      * @return
      *     possible object is
@@ -94,7 +94,7 @@ public class TCodigosBarras {
     }
 
     /**
-     * Sets the value of the arrayImagenes property.
+     * Define el valor de la propiedad arrayImagenes.
      * 
      * @param value
      *     allowed object is
@@ -106,7 +106,7 @@ public class TCodigosBarras {
     }
 
     /**
-     * Gets the value of the arrayCodigos property.
+     * Obtiene el valor de la propiedad arrayCodigos.
      * 
      * @return
      *     possible object is
@@ -118,7 +118,7 @@ public class TCodigosBarras {
     }
 
     /**
-     * Sets the value of the arrayCodigos property.
+     * Define el valor de la propiedad arrayCodigos.
      * 
      * @param value
      *     allowed object is
@@ -130,7 +130,7 @@ public class TCodigosBarras {
     }
 
     /**
-     * Gets the value of the arrayEntradas property.
+     * Obtiene el valor de la propiedad arrayEntradas.
      * 
      * @return
      *     possible object is
@@ -142,7 +142,7 @@ public class TCodigosBarras {
     }
 
     /**
-     * Sets the value of the arrayEntradas property.
+     * Define el valor de la propiedad arrayEntradas.
      * 
      * @param value
      *     allowed object is

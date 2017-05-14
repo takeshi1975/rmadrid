@@ -72,8 +72,11 @@ public class RMadrid {
 		*/
 		try{
 			SWGesauroRM swgesaurorm = new SWGesauroRM(new URL(wsdlURL));
-			SWGesauroRMSoap service = swgesaurorm.getPort(SWGesauroRMSoap.class);
+			SWGesauroRMSoap service = swgesaurorm.getSWGesauroRMSoap();
+
+			log.info("Voy a llamar a la emision de cordigo de barras");
 			TCodigosBarras codbars = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteAD, 2, new AuthHeader());
+			log.info("Se ha llamado a la emisión de codigo de barras");
 			if (codbars!=null && codbars.getArrayCodigos()!=null){
 				for (String s:codbars.getArrayCodigos().getString())
 					log.info(s);

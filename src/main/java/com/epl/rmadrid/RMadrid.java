@@ -76,6 +76,10 @@ public class RMadrid {
 
 			log.info("Voy a llamar a la emision de cordigo de barras");
 			TCodigosBarras codbars = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteAD, 2, new AuthHeader());
+			if (codbars==null)
+				log.info("El resultado es null");
+			else
+				log.info("El resultado no es null");			
 			log.info("Se ha llamado a la emisión de codigo de barras");
 			if (codbars!=null && codbars.getArrayCodigos()!=null){
 				for (String s:codbars.getArrayCodigos().getString())

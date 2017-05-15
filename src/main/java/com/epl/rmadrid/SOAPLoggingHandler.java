@@ -58,7 +58,7 @@ public class SOAPLoggingHandler implements SOAPHandler<SOAPMessageContext> {
         	out.reset();        	
             message.writeTo(printStream);
             printStream.println("--------------------------------------------------------------");
-            log.info(out.toByteArray()); // Sacamos el mensaje por el log
+            log.info(new String(out.toByteArray())); // Sacamos el mensaje por el log
         } catch (Exception e) {
             log.error("Exception in handler: " + e);
         }

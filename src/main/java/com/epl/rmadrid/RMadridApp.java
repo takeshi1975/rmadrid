@@ -19,7 +19,7 @@ public class RMadridApp extends SpringBootServletInitializer {
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		logger.info("Se configura la aplicación");
+		logger.info("Se configura la aplicacion");
 		return application.sources(RMadridApp.class);
 	}	
 

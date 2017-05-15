@@ -1,9 +1,14 @@
 package com.epl.rmadrid;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.namespace.QName;
+import javax.xml.ws.BindingProvider;
+import javax.xml.ws.handler.Handler;
+import javax.xml.ws.handler.soap.SOAPHandler;
+import javax.xml.ws.handler.soap.SOAPMessageContext;
 
 import org.apache.log4j.Logger;
 import org.rm.AuthHeader;
@@ -72,7 +77,16 @@ public class RMadrid {
 		*/
 		try{
 			SWGesauroRM swgesaurorm = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
-			swgesaurorm.getHandlerResolver().getHandlerChain(null).add(new SOAPLoggingHandler());			
+			log.info("Se va a obtener Binding Provider");
+			BindingProvider bp =(BindingProvider) swgesaurorm;
+			if (bp.getBinding().getHandlerChain()==null){
+				log.info("Se da de alta la lista de Handlers");
+				@SuppressWarnings("rawtypes")
+				List<Handler> handlerList = new ArrayList<Handler>();
+				bp.getBinding().setHandlerChain(handlerList);
+			}
+			bp.getBinding().getHandlerChain().add(new SOAPLoggingHandler());
+			//swgesaurorm.getHandlerResolver().getHandlerChain(null).add();			
 			SWGesauroRMSoap service = swgesaurorm.getSWGesauroRMSoap();
 			log.info("Voy a llamar a la emision de cordigo de barras");
 			TCodigosBarras codbars = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteAD, 2, new AuthHeader());

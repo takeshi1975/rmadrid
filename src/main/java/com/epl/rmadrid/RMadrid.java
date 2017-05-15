@@ -1,14 +1,9 @@
 package com.epl.rmadrid;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.namespace.QName;
-import javax.xml.ws.BindingProvider;
-import javax.xml.ws.handler.Handler;
-import javax.xml.ws.handler.soap.SOAPHandler;
-import javax.xml.ws.handler.soap.SOAPMessageContext;
 
 import org.apache.log4j.Logger;
 import org.rm.AuthHeader;
@@ -77,23 +72,13 @@ public class RMadrid {
 		*/
 		try{
 			SWGesauroRM swgesaurorm = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
-			log.info("Se va a obtener Binding Provider");
-			BindingProvider bp =(BindingProvider) swgesaurorm;
-			if (bp.getBinding().getHandlerChain()==null){
-				log.info("Se da de alta la lista de Handlers");
-				@SuppressWarnings("rawtypes")
-				List<Handler> handlerList = new ArrayList<Handler>();
-				bp.getBinding().setHandlerChain(handlerList);
-			}
-			bp.getBinding().getHandlerChain().add(new SOAPLoggingHandler());
-			//swgesaurorm.getHandlerResolver().getHandlerChain(null).add();			
+			swgesaurorm.setHandlerResolver(new GesauroRMHandleResolver());
+			log.info("Se va a obtener Binding Provider");									
 			SWGesauroRMSoap service = swgesaurorm.getSWGesauroRMSoap();
 			log.info("Voy a llamar a la emision de cordigo de barras");
 			TCodigosBarras codbars = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteAD, 2, new AuthHeader());
-			if (codbars==null)
-				log.info("El resultado es null");
-			else
-				log.info("El resultado no es null");			
+			String result =(codbars==null)?"El resultado es null":"El resultado no es null";
+			log.info(result);
 			log.info("Se ha llamado a la emisión de codigo de barras");
 			if (codbars!=null && codbars.getArrayCodigos()!=null){
 				for (String s:codbars.getArrayCodigos().getString())

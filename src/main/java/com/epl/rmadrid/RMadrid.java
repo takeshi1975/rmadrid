@@ -71,9 +71,9 @@ public class RMadrid {
 		return null;
 		*/
 		try{
-			SWGesauroRM swgesaurorm = new SWGesauroRM(new URL(wsdlURL));
+			SWGesauroRM swgesaurorm = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
+			swgesaurorm.getHandlerResolver().getHandlerChain(null).add(new SOAPLoggingHandler());			
 			SWGesauroRMSoap service = swgesaurorm.getSWGesauroRMSoap();
-
 			log.info("Voy a llamar a la emision de cordigo de barras");
 			TCodigosBarras codbars = service.rmEmisionCodigosBarras(idEntidad, idConcepto, tipoClienteAD, 2, new AuthHeader());
 			if (codbars==null)
@@ -85,7 +85,9 @@ public class RMadrid {
 				for (String s:codbars.getArrayCodigos().getString())
 					log.info(s);
 			}
-			return codbars.getArrayCodigos().getString();
+			if (codbars!=null)
+				return codbars.getArrayCodigos().getString();
+			return null;
 		}catch(Exception ex){
 			log.error("Error en el proceso", ex);
 			return null;

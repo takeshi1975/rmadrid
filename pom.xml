@@ -157,7 +157,19 @@
 			<groupId>com.jamonapi</groupId>
 			<artifactId>jamon</artifactId>
 			<version>2.81</version>
-		</dependency>		
+		</dependency>
+		
+		<dependency>
+			<groupId>net.sourceforge.barbecue</groupId>
+			<artifactId>barbecue</artifactId>
+			<version>1.5-beta1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.4.0</version>
+		</dependency>
+				
 	</dependencies>
 
 	<build>
@@ -187,6 +199,10 @@
 			<id>doraemon-local</id>
 			<name>doraemon-local</name>
 			<url>http://doraemon.com:8080/http://8080/artifactory/mvnepl01-local</url>
+		</repository>
+		<repository>
+			<id>jasperreports</id>
+			<url>http://jasperreports.sourceforge.net/maven2</url>
 		</repository>
 	</repositories>
 

@@ -21,12 +21,11 @@ public class RMadridController {
 	public String[] askForTickets(@PathVariable int ad, @PathVariable int ni){
 		List<String> results = rmadrid.askSomeTickets(ad, ni);
 		if (results!=null){
-			for (int i=0; i<=results.size(); i++)
+			for (int i=0; i<results.size(); i++)
 				log.info("Codigo de barras "+results.get(i));
-			if (results.size()>0)
-				return results.toArray(new String[results.size()]);
-			else return new String []{"No hay datos para mostrar"};
-		} else return new String [] {"Error interno del servidor"};
+			return (results.size()>0)?results.toArray(new String[results.size()]):new String []{"No hay datos para mostrar"};
+		} else 
+			return new String [] {"Error interno del servidor"};
 	}	
 	
 }

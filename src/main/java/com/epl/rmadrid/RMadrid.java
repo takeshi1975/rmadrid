@@ -41,35 +41,7 @@ public class RMadrid {
 	 * 
 	 * @return Objeto con el codigo de barras en ArrayCodigos.
 	 */
-	public List<String> askSomeTickets(int qtyAd, int qtyNi) {
-		/*
-		log.info("Se van a pedir tickets "+wsdlURL);
-		try {
-			log.info("Se va a conectar con el servidor externo ");
-			ClientProxyFactoryBean factory = new JaxWsProxyFactoryBean();
-			factory.setServiceClass(SWGesauroRMSoap.class);			
-			factory.setAddress(wsdlURL); // Fijamos los interceptores...
-			factory.getInInterceptors().add(new LoggingInInterceptor());
-			factory.getOutInterceptors().add(new LoggingOutInterceptor());
-			
-			SWGesauroRMSoap serviceClient = (SWGesauroRMSoap) factory.create();
-			Client proxy = ClientProxy.getClient(serviceClient);
-			List<Header> headersList = new ArrayList<Header>();			
-			Header testSoapHeader1 = new Header(new QName("", "AuthHeader"), new AuthHeader("", ""),
-					new JAXBDataBinding(AuthHeader.class));
-			headersList.add(testSoapHeader1); // Añadimos el objeto AuthHeader a SoapEnvelop
-			proxy.getRequestContext().put(Header.HEADER_LIST, headersList);
-			TCodigosBarras codbars = serviceClient.rmEmisionCodigosBarras(this.idEntidad, this.idConcepto,
-					this.tipoClienteAD, qtyAd);
-			if (codbars!=null && codbars.getArrayCodigos()!=null)
-				for (String s:codbars.getArrayCodigos().getString())
-					log.info(s);
-			return codbars.getArrayCodigos().getString();
-		} catch (Exception ex) {
-			log.error("Error en el proceso", ex);
-		}
-		return null;
-		*/
+	public List<String> askSomeTickets(int qtyAd, int qtyNi) {		
 		try{
 			SWGesauroRM swgesaurorm = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
 			swgesaurorm.setHandlerResolver(new GesauroRMHandleResolver());
@@ -91,6 +63,22 @@ public class RMadrid {
 			log.error("Error en el proceso", ex);
 			return null;
 		}		
+	}
+	
+	public boolean removeTicket(long numOperacion){
+		try{
+			SWGesauroRM swgesaurorm = new SWGesauroRM(new URL(wsdlURL), SERVICE_NAME);
+			swgesaurorm.setHandlerResolver(new GesauroRMHandleResolver());
+			log.info("Se va a obtener Binding Provider");									
+			SWGesauroRMSoap service = swgesaurorm.getSWGesauroRMSoap();
+			log.info("Voy a llamar a la emision de cordigo de barras");			
+			boolean result = service.rmCancelacionCodigosBarras(idEntidad, numOperacion, new AuthHeader());			
+			log.info("Se ha llamado a la cancelación de codigo de barras");			
+			return result;
+		}catch(Exception ex){
+			log.error("Error en el proceso", ex);
+			return false;
+		}
 	}
 
 }

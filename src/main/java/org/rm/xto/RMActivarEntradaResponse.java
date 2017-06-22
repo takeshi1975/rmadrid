@@ -1,5 +1,5 @@
 
-package org.rm;
+package org.rm.xto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="RMCancelacionEntradaResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="RMActivarEntradaResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,28 +29,28 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "rmCancelacionEntradaResult"
+    "rmActivarEntradaResult"
 })
-@XmlRootElement(name = "RMCancelacionEntradaResponse")
-public class RMCancelacionEntradaResponse {
+@XmlRootElement(name = "RMActivarEntradaResponse")
+public class RMActivarEntradaResponse {
 
-    @XmlElement(name = "RMCancelacionEntradaResult")
-    protected boolean rmCancelacionEntradaResult;
+    @XmlElement(name = "RMActivarEntradaResult")
+    protected boolean rmActivarEntradaResult;
 
     /**
-     * Obtiene el valor de la propiedad rmCancelacionEntradaResult.
+     * Obtiene el valor de la propiedad rmActivarEntradaResult.
      * 
      */
-    public boolean isRMCancelacionEntradaResult() {
-        return rmCancelacionEntradaResult;
+    public boolean isRMActivarEntradaResult() {
+        return rmActivarEntradaResult;
     }
 
     /**
-     * Define el valor de la propiedad rmCancelacionEntradaResult.
+     * Define el valor de la propiedad rmActivarEntradaResult.
      * 
      */
-    public void setRMCancelacionEntradaResult(boolean value) {
-        this.rmCancelacionEntradaResult = value;
+    public void setRMActivarEntradaResult(boolean value) {
+        this.rmActivarEntradaResult = value;
     }
 
 }

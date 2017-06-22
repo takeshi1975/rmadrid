@@ -1,5 +1,5 @@
 
-package org.rm;
+package org.rm.xto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -32,8 +32,8 @@ import javax.xml.bind.annotation.XmlType;
     "idEntidad",
     "idEntrada"
 })
-@XmlRootElement(name = "RMDesactivarEntrada")
-public class RMDesactivarEntrada {
+@XmlRootElement(name = "RMCodigoUsado")
+public class RMCodigoUsado {
 
     protected long idEntidad;
     protected long idEntrada;

@@ -1,5 +1,5 @@
 
-package org.rm;
+package org.rm.xto;
 
 import java.net.MalformedURLException;
 import java.net.URL;

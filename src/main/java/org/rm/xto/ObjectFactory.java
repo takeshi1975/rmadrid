@@ -1,5 +1,5 @@
 
-package org.rm;
+package org.rm.xto;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;

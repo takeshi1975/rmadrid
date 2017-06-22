@@ -1,5 +1,5 @@
 
-package org.rm;
+package org.rm.xto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -36,8 +36,8 @@ import javax.xml.bind.annotation.XmlType;
     "idTipoCliente",
     "cantidad"
 })
-@XmlRootElement(name = "RMEmisionCodigosBarrasDesactivados")
-public class RMEmisionCodigosBarrasDesactivados {
+@XmlRootElement(name = "RMEmisionCodigosBarras")
+public class RMEmisionCodigosBarras {
 
     protected long idEntidad;
     protected long idConcepto;

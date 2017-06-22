@@ -6,10 +6,10 @@ import java.util.List;
 import javax.xml.namespace.QName;
 
 import org.apache.log4j.Logger;
-import org.rm.AuthHeader;
-import org.rm.SWGesauroRM;
-import org.rm.SWGesauroRMSoap;
-import org.rm.TCodigosBarras;
+import org.rm.xto.AuthHeader;
+import org.rm.xto.SWGesauroRM;
+import org.rm.xto.SWGesauroRMSoap;
+import org.rm.xto.TCodigosBarras;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

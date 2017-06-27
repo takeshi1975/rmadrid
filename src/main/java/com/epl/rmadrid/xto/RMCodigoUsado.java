@@ -1,5 +1,5 @@
 
-package org.rm.xto;
+package com.epl.rmadrid.xto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
  *         &lt;element name="idEntidad" type="{http://www.w3.org/2001/XMLSchema}long"/>
- *         &lt;element name="numOperacion" type="{http://www.w3.org/2001/XMLSchema}long"/>
+ *         &lt;element name="idEntrada" type="{http://www.w3.org/2001/XMLSchema}long"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -30,13 +30,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
     "idEntidad",
-    "numOperacion"
+    "idEntrada"
 })
-@XmlRootElement(name = "RMCancelacionCodigosBarras")
-public class RMCancelacionCodigosBarras {
+@XmlRootElement(name = "RMCodigoUsado")
+public class RMCodigoUsado {
 
     protected long idEntidad;
-    protected long numOperacion;
+    protected long idEntrada;
 
     /**
      * Obtiene el valor de la propiedad idEntidad.
@@ -55,19 +55,19 @@ public class RMCancelacionCodigosBarras {
     }
 
     /**
-     * Obtiene el valor de la propiedad numOperacion.
+     * Obtiene el valor de la propiedad idEntrada.
      * 
      */
-    public long getNumOperacion() {
-        return numOperacion;
+    public long getIdEntrada() {
+        return idEntrada;
     }
 
     /**
-     * Define el valor de la propiedad numOperacion.
+     * Define el valor de la propiedad idEntrada.
      * 
      */
-    public void setNumOperacion(long value) {
-        this.numOperacion = value;
+    public void setIdEntrada(long value) {
+        this.idEntrada = value;
     }
 
 }

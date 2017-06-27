@@ -1,5 +1,5 @@
 
-package org.rm.xto;
+package com.epl.rmadrid.xto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="RMCodigoUsadoResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="RMCancelacionCodigosBarrasResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,28 +29,28 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "rmCodigoUsadoResult"
+    "rmCancelacionCodigosBarrasResult"
 })
-@XmlRootElement(name = "RMCodigoUsadoResponse")
-public class RMCodigoUsadoResponse {
+@XmlRootElement(name = "RMCancelacionCodigosBarrasResponse")
+public class RMCancelacionCodigosBarrasResponse {
 
-    @XmlElement(name = "RMCodigoUsadoResult")
-    protected boolean rmCodigoUsadoResult;
+    @XmlElement(name = "RMCancelacionCodigosBarrasResult")
+    protected boolean rmCancelacionCodigosBarrasResult;
 
     /**
-     * Obtiene el valor de la propiedad rmCodigoUsadoResult.
+     * Obtiene el valor de la propiedad rmCancelacionCodigosBarrasResult.
      * 
      */
-    public boolean isRMCodigoUsadoResult() {
-        return rmCodigoUsadoResult;
+    public boolean isRMCancelacionCodigosBarrasResult() {
+        return rmCancelacionCodigosBarrasResult;
     }
 
     /**
-     * Define el valor de la propiedad rmCodigoUsadoResult.
+     * Define el valor de la propiedad rmCancelacionCodigosBarrasResult.
      * 
      */
-    public void setRMCodigoUsadoResult(boolean value) {
-        this.rmCodigoUsadoResult = value;
+    public void setRMCancelacionCodigosBarrasResult(boolean value) {
+        this.rmCancelacionCodigosBarrasResult = value;
     }
 
 }

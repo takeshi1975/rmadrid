@@ -1,5 +1,5 @@
 
-package org.rm.xto;
+package com.epl.rmadrid.xto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,16 +10,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para ArrayOfBase64Binary complex type.
+ * <p>Clase Java para ArrayOfString complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="ArrayOfBase64Binary">
+ * &lt;complexType name="ArrayOfString">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="base64Binary" type="{http://www.w3.org/2001/XMLSchema}base64Binary" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="string" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,40 +29,41 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ArrayOfBase64Binary", propOrder = {
-    "base64Binary"
+@XmlType(name = "ArrayOfString", propOrder = {
+    "string"
 })
-public class ArrayOfBase64Binary {
+public class ArrayOfString {
 
     @XmlElement(nillable = true)
-    protected List<byte[]> base64Binary;
+    protected List<String> string;
 
     /**
-     * Gets the value of the base64Binary property.
+     * Gets the value of the string property.
      * 
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the base64Binary property.
+     * This is why there is not a <CODE>set</CODE> method for the string property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getBase64Binary().add(newItem);
+     *    getString().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * byte[]
+     * {@link String }
+     * 
      * 
      */
-    public List<byte[]> getBase64Binary() {
-        if (base64Binary == null) {
-            base64Binary = new ArrayList<byte[]>();
+    public List<String> getString() {
+        if (string == null) {
+            string = new ArrayList<String>();
         }
-        return this.base64Binary;
+        return this.string;
     }
 
 }

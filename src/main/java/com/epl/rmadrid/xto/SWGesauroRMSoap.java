@@ -1,5 +1,5 @@
 
-package org.rm.xto;
+package com.epl.rmadrid.xto;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;

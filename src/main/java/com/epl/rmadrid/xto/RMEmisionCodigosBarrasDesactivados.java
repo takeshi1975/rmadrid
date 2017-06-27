@@ -1,5 +1,5 @@
 
-package org.rm.xto;
+package com.epl.rmadrid.xto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -36,8 +36,8 @@ import javax.xml.bind.annotation.XmlType;
     "idTipoCliente",
     "cantidad"
 })
-@XmlRootElement(name = "RMEmisionCodigosBarras")
-public class RMEmisionCodigosBarras {
+@XmlRootElement(name = "RMEmisionCodigosBarrasDesactivados")
+public class RMEmisionCodigosBarrasDesactivados {
 
     protected long idEntidad;
     protected long idConcepto;

@@ -49,7 +49,15 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
 
 		<dependency> <!-- Log4j -->
 			<groupId>log4j</groupId>
@@ -117,7 +125,7 @@
 		</plugins>
 	</build>
 
-	<repositories>
+	<!--- itories>
 		<repository>
 			<id>central</id>
 			<name>maven-central</name>
@@ -131,13 +139,13 @@
 		<repository>
 			<id>doraemon-local</id>
 			<name>doraemon-local</name>
-			<url>http://doraemon.com:8080/http://8080/artifactory/mvnepl01-local</url>
+			<url>http://8080/artifactory/mvnepl01-local</url>
 		</repository>
 		<repository>
 			<id>jasperreports</id>
 			<url>http://jasperreports.sourceforge.net/maven2</url>
 		</repository>
-	</repositories>
+	</repositories -->
 
 
 

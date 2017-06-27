@@ -1,5 +1,5 @@
 
-package org.rm.xto;
+package com.epl.rmadrid.xto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="RMCancelacionCodigosBarrasResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="RMActivarEntradaResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,28 +29,28 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "rmCancelacionCodigosBarrasResult"
+    "rmActivarEntradaResult"
 })
-@XmlRootElement(name = "RMCancelacionCodigosBarrasResponse")
-public class RMCancelacionCodigosBarrasResponse {
+@XmlRootElement(name = "RMActivarEntradaResponse")
+public class RMActivarEntradaResponse {
 
-    @XmlElement(name = "RMCancelacionCodigosBarrasResult")
-    protected boolean rmCancelacionCodigosBarrasResult;
+    @XmlElement(name = "RMActivarEntradaResult")
+    protected boolean rmActivarEntradaResult;
 
     /**
-     * Obtiene el valor de la propiedad rmCancelacionCodigosBarrasResult.
+     * Obtiene el valor de la propiedad rmActivarEntradaResult.
      * 
      */
-    public boolean isRMCancelacionCodigosBarrasResult() {
-        return rmCancelacionCodigosBarrasResult;
+    public boolean isRMActivarEntradaResult() {
+        return rmActivarEntradaResult;
     }
 
     /**
-     * Define el valor de la propiedad rmCancelacionCodigosBarrasResult.
+     * Define el valor de la propiedad rmActivarEntradaResult.
      * 
      */
-    public void setRMCancelacionCodigosBarrasResult(boolean value) {
-        this.rmCancelacionCodigosBarrasResult = value;
+    public void setRMActivarEntradaResult(boolean value) {
+        this.rmActivarEntradaResult = value;
     }
 
 }

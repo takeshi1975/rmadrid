@@ -1,5 +1,5 @@
 
-package org.rm.xto;
+package com.epl.rmadrid.xto;
 
 import java.net.MalformedURLException;
 import java.net.URL;

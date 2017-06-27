@@ -1,5 +1,5 @@
 
-package org.rm.xto;
+package com.epl.rmadrid.xto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="RMEmisionCodigosBarrasDesactivadosResult" type="{http://tempuri.org/}TCodigosBarras" minOccurs="0"/>
+ *         &lt;element name="RMEmisionCodigosBarrasResult" type="{http://tempuri.org/}TCodigosBarras" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,36 +29,36 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "rmEmisionCodigosBarrasDesactivadosResult"
+    "rmEmisionCodigosBarrasResult"
 })
-@XmlRootElement(name = "RMEmisionCodigosBarrasDesactivadosResponse")
-public class RMEmisionCodigosBarrasDesactivadosResponse {
+@XmlRootElement(name = "RMEmisionCodigosBarrasResponse")
+public class RMEmisionCodigosBarrasResponse {
 
-    @XmlElement(name = "RMEmisionCodigosBarrasDesactivadosResult")
-    protected TCodigosBarras rmEmisionCodigosBarrasDesactivadosResult;
+    @XmlElement(name = "RMEmisionCodigosBarrasResult")
+    protected TCodigosBarras rmEmisionCodigosBarrasResult;
 
     /**
-     * Obtiene el valor de la propiedad rmEmisionCodigosBarrasDesactivadosResult.
+     * Obtiene el valor de la propiedad rmEmisionCodigosBarrasResult.
      * 
      * @return
      *     possible object is
      *     {@link TCodigosBarras }
      *     
      */
-    public TCodigosBarras getRMEmisionCodigosBarrasDesactivadosResult() {
-        return rmEmisionCodigosBarrasDesactivadosResult;
+    public TCodigosBarras getRMEmisionCodigosBarrasResult() {
+        return rmEmisionCodigosBarrasResult;
     }
 
     /**
-     * Define el valor de la propiedad rmEmisionCodigosBarrasDesactivadosResult.
+     * Define el valor de la propiedad rmEmisionCodigosBarrasResult.
      * 
      * @param value
      *     allowed object is
      *     {@link TCodigosBarras }
      *     
      */
-    public void setRMEmisionCodigosBarrasDesactivadosResult(TCodigosBarras value) {
-        this.rmEmisionCodigosBarrasDesactivadosResult = value;
+    public void setRMEmisionCodigosBarrasResult(TCodigosBarras value) {
+        this.rmEmisionCodigosBarrasResult = value;
     }
 
 }

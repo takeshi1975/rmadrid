@@ -1,5 +1,5 @@
 
-package org.rm.xto;
+package com.epl.rmadrid.xto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="RMActivarEntradaResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="RMCodigoUsadoResult" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -29,28 +29,28 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "rmActivarEntradaResult"
+    "rmCodigoUsadoResult"
 })
-@XmlRootElement(name = "RMActivarEntradaResponse")
-public class RMActivarEntradaResponse {
+@XmlRootElement(name = "RMCodigoUsadoResponse")
+public class RMCodigoUsadoResponse {
 
-    @XmlElement(name = "RMActivarEntradaResult")
-    protected boolean rmActivarEntradaResult;
+    @XmlElement(name = "RMCodigoUsadoResult")
+    protected boolean rmCodigoUsadoResult;
 
     /**
-     * Obtiene el valor de la propiedad rmActivarEntradaResult.
+     * Obtiene el valor de la propiedad rmCodigoUsadoResult.
      * 
      */
-    public boolean isRMActivarEntradaResult() {
-        return rmActivarEntradaResult;
+    public boolean isRMCodigoUsadoResult() {
+        return rmCodigoUsadoResult;
     }
 
     /**
-     * Define el valor de la propiedad rmActivarEntradaResult.
+     * Define el valor de la propiedad rmCodigoUsadoResult.
      * 
      */
-    public void setRMActivarEntradaResult(boolean value) {
-        this.rmActivarEntradaResult = value;
+    public void setRMCodigoUsadoResult(boolean value) {
+        this.rmCodigoUsadoResult = value;
     }
 
 }
